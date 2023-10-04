@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="VDT: A UNIFIED VIDEO DIFFUSION TRANSFORMER VIA MASK MODELING.">
+        content="VDT: General-purpose Video Diffusion Transformers via Mask Modeling.">
   <meta name="keywords" content="VIDEO DIFFUSION, DIFFUSION, MASK MODELING">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nerfies: Deformable Neural Radiance Fields</title>
@@ -50,7 +50,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">VDT: A Unified Video Diffusion Transformer via Mask Modeling</h1>
+          <h1 class="title is-1 publication-title">VDT: General-purpose Video Diffusion Transformers via Mask Modeling</h1>
           <!-- <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
@@ -82,12 +82,34 @@
   </div>
 </section>
 
+<section class="hero teaser" style="margin-left: 50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/fig_univdt.png" alt="Nerfies Image">
+      <h2 class="subtitle has-text-centered">
+        A diagram of our unified video diffusion transformer (<span class="dnerf"></span>VDT</span>) via spatial-temporal mask
+        modeling. VDT represents a versatile framework constructed upon pure transformer architectures.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- <object data="./static/images/sky_1.pdf" type="application/pdf" width="500" height="300">
+  <p>It appears you don't have a PDF plugin for this browser.
+     You can <a href="sky_1.pdf">click here to download the PDF file.</a></p>
+</object> -->
+
+
+
+<!-- <embed src="./static/images/sky_1.pdf" type="application/pdf" width="500" height="300"> -->
+
+
 <!-- <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
+        <source src="./static/images/fig_univdt.png"
+                type="images/png">
       </video>
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
@@ -165,32 +187,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            This work introduces Video Diffusion Transformer (VDT), which pioneers the
-            use of transformers in diffusion-based video generation. 
+            This work introduces Video Diffusion Transformer (VDT), which pioneers the use of transformers in diffusion-based video generation. It features transformer blocks with modularized temporal and spatial attention modules to leverage the rich spatial-temporal representation inherited in transformers. Additionally, we propose a unified spatial-temporal mask modeling mechanism, seamlessly integrated with the model, to cater to diverse video generation scenarios.
           </p>
           <p>
-            Benefiting
-            from transformer, VDT offers several appealing benefits. 1) It
-            excels at capturing temporal dependencies to produce temporally consistent video
-            frames and even simulate the dynamics of 3D objects over time. 2) It enables
-            flexible conditioning information through simple concatenation in the token space,
-            effectively unifying video generation and prediction tasks.
-          </p>
-          <p>
-            With the inherent flexibility of our VDT, we further broaden its scope
-              to encompass more varied downstream tasks via a unified spatial-temporal mask
-              modeling mechanism. Once trained, our VDT is capable of handling a diverse array
-              of general-purpose tasks, ranging from unconditional generation and bi-directional
-              video prediction to arbitrary video interpolation and animation.Extensive experi-
-              ments on video generation, prediction, and dynamics modeling (i.e., physics-based
-              QA) tasks have been conducted to demonstrate the effectiveness of VDT in vari-
-              ous scenarios, including autonomous driving, natural weather, human action, and
-              physics-based simulation.
+            VDT offers several appealing benefits. (1) It excels at capturing temporal dependencies to produce temporally consistent video frames and even simulate the physics and dynamics of 3D objects over time. (2) It facilitates flexible conditioning information, \eg, simple concatenation in the token space, effectively unifying different token lengths and modalities. (3) Pairing with our proposed spatial-temporal mask modeling mechanism, it becomes a general-purpose video diffuser for harnessing a range of tasks, including unconditional generation, video prediction, interpolation, animation, and completion, etc. % Extensive experiments on these tasks spanning various scenarios, including autonomous driving, natural weather, human action, and physics-based simulation, demonstrate the effectiveness of VDT. % Moreover, we provide a comprehensive study on the capabilities of VDT in capturing accurate temporal dependencies, handling conditioning information, and the spatial-temporal mask modeling mechanism. Additionally, we present comprehensive studies on how VDT handles conditioning information with the mask modeling mechanism, which we believe will benefit future research and advance the field. 
 
           </p>
-          <p>We hope our study on the capabilities of transformer-based video diffusion in
-            capturing accurate temporal dependencies, handling conditioning information, and
-            achieving efficient training will benefit future research and advance the field.</p>
+
         </div>
       </div>
     </div>
@@ -210,7 +213,73 @@
   </div>
 </section>
 
+<section class="hero teaser" style="margin-left: 50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/sky_1.png" alt="Nerfies Image">
+      <h2 class="subtitle has-text-centered">
+        Qualitative results (16x256x256) on Sky Time-Lapse.
+      </h2>
+    </div>
+  </div>
+</section>
 
+<section class="hero teaser" style="margin-left: 50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/sky_2.png" alt="Nerfies Image">
+      <h2 class="subtitle has-text-centered">
+        Qualitative results (16x256x256) on Sky Time-Lapse.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser" style="margin-left: 50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/sky_3.png" alt="Nerfies Image">
+      <h2 class="subtitle has-text-centered">
+        Qualitative results (16x256x256) on Sky Time-Lapse.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser" style="margin-left: 50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/sky_4.png" alt="Nerfies Image">
+      <h2 class="subtitle has-text-centered">
+        Qualitative results (16x256x256) on Sky Time-Lapse.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser" style="margin-left: 50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/sky_5.png" alt="Nerfies Image">
+      <h2 class="subtitle has-text-centered">
+        Qualitative results (16x256x256) on Sky Time-Lapse.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser" style="margin-left: 50px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/taichi.png" alt="Nerfies Image">
+      <h2 class="subtitle has-text-centered">
+        Qualitative results (16x256x256) on TaiChi-HD.
+      </h2>
+    </div>
+  </div>
+</section>
 
 <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -223,6 +292,7 @@
 }</code></pre>
   </div>
 </section> -->
+
 
 
 <footer class="footer">
