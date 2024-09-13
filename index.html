@@ -1,493 +1,253 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="VDT: General-purpose Video Diffusion Transformers via Mask Modeling.">
-  <meta name="keywords" content="VIDEO DIFFUSION, DIFFUSION, MASK MODELING">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VDT: General-purpose Video Diffusion Transformers via Mask Modeling</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Animate Your Thoughts</title>
+<link href="./DreamBooth_files/style.css" rel="stylesheet">
+<script type="text/javascript" src="./DreamBooth_files/jquery.mlens-1.0.min.js"></script> 
+<script type="text/javascript" src="./DreamBooth_files/jquery.js"></script>
 </head>
+
 <body>
+<div class="content">
+  <h1><strong>Animate Your Thoughts: Decoupled Reconstruction ofDynamic Natural Vision from Slow Brain Activity</strong></h1>
+  <div class="teaser-gif">
+    <div class="row-label" data-label="Ground truth"></div>
+    <img src="./DreamBooth_files/gif/1-1.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/1-2.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/1-3.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/1-4.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/1-5.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/1-6.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/1-7.gif" class="teaser-gif-item" >
 
+    <div class="row-label" data-label="Reconstructed results"></div>
+    <img src="./DreamBooth_files/gif/2-1.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/2-2.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/2-3.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/2-4.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/2-5.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/2-6.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/2-7.gif" class="teaser-gif-item" >
+    
+    <div class="row-label" data-label="Ground truth"></div>
+    <img src="./DreamBooth_files/gif/3-1.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/3-2.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/3-3.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/3-4.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/3-5.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/3-6.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/3-7.gif" class="teaser-gif-item" >
+    
+    <div class="row-label" data-label="Reconstructed results"></div>
+    <img src="./DreamBooth_files/gif/4-1.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/4-2.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/4-3.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/4-4.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/4-5.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/4-6.gif" class="teaser-gif-item" >
+    <img src="./DreamBooth_files/gif/4-7.gif" class="teaser-gif-item" >
+  </div>
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Abstract</h2>
+  <p> Reconstructing human dynamic vision from brain activity is a challenging task with great scientific significance.  Although prior video reconstruction methods have made substantial progress, they still suffer from several limitations, including: (1) difficulty in simultaneously reconciling semantic (e.g. categorical descriptions), structure (e.g. size and color), and consistent motion information (e.g. order of frames); (2) low temporal resolution of fMRI, which poses a challenge in decoding multiple frames of video dynamics from a single fMRI frame; (3) reliance on video generation models, which introduces ambiguity regarding whether the dynamics observed in the reconstructed videos are genuinely derived from fMRI data or are artifacts introduced by the model's exposure to external video data during training. To overcome these limitations,  we propose a two-stage model named Mind-Animator. During the fMRI-to-feature stage, we decouple semantic, structure, and motion features from fMRI. Specifically, we employ fMRI-vision-language tri-modal contrastive learning to decode semantic feature from fMRI and design a sparse causal attention mechanism for decoding multi-frame video motion features through a next-frame-prediction task. In the feature-to-video stage, these features are integrated into videos using an inflated Stable Diffusion, effectively eliminating external video data interference.  Extensive experiments on multiple video-fMRI datasets demonstrate that our model achieves state-of-the-art performance. Comprehensive experimental analyses further elucidate the interpretability of our model from a neurobiological perspective.</p>
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Motivations</h2>
+  <img class="summary-img" src="./DreamBooth_files/p1.png" style="width:100%;"> <br>
+  <p> When subjects view static images, the primary visual cortex first processes low-level structural information, such as location, shape, size, and color. Subsequently, in the higher visual cortex, the interpretation of category and description leads to high-level semantic understanding. Based on these findings in neuroscience, previous studies have attempted to reconstruct images by disentangling semantic and structural information. Naturally, when reconstructing dynamic video stimuli, in addition to these two features, it is also crucial to consider how motion information can be decoded from brain responses. </p>
+  <br>
 
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Related works</h2>
+  <img class="summary-img" src="./DreamBooth_files/p2.png" style="width:100%;"> <br>
+  <p> As depicted in Figure (a), early works by Han, Wen, Wang, and others mapped brain responses to the feature spaces of deep neural networks (DNNs) for end-to-end video reconstruction. To address the scarcity of paired video-fMRI data, Kupershmidt further advanced this approach by leveraging self-supervised learning to incorporate a large volume of unpaired video data. Although these studies demonstrated the feasibility of reconstructing videos from fMRI signals, the results notably <strong>lacked explicit semantic content.</strong>  </p>
+  <br>
+  <p>As shown in Figure (b), with advancements in multimodal and generative models, Chen, Sun, et al. used contrastive learning to map fMRI signals to the CLIP latent space for semantic decoding, followed by input into a video generation model for reconstruction. This approach produces semantically coherent and smooth videos, but it remains <strong> whether the motion information in the reconstructions originates from the fMRI or from the external video data used to train the video generation model. </strong> </p>
+  <br>
+  <p>To address the above issue, we propose Mind-Animator. By independently decoding semantic, structural, and motion information from fMRI signals and inputting them into an <strong>inflated image generation model</strong>, we ensure that the motion in the reconstructed videos originates solely from the fMRI data.   </p>
+  <img class="summary-img" src="./DreamBooth_files/p5.gif" style="width:100%;">
+  <p>Notably, our method, which decodes semantic, structural, and motion information separately, produces reconstructions more closely aligned with the original video's <strong>appearance and motion trajectory</strong> (e.g., a forward-extending road). However, as shown in the red box, the use of an image generation model alone introduces 'jumpiness' between frames, resulting in lower inter-frame similarity and reduced smoothness compared to video generation models.  </p>
+  <br>
+  <p>Therefore, video generation models were only used in the video demonstrations on the project homepage to enhance smoothness. In all other contexts (e.g., quantitative analysis, ablation studies, interpretability analysis), unless otherwise specified, only image generation models were employed.  </p>
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Methodology</h2>
+<img class="summary-img" src="./DreamBooth_files/P6.png" style="width:100%;">
+<img class="summary-img" src="./DreamBooth_files/P7.png" style="width:100%;">
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Reconstruction Results</h2>
+  <img class="summary-img" src="./DreamBooth_files/P8.png" style="width:100%;">
+  <img class="summary-img" src="./DreamBooth_files/P9.png" style="width:100%;">
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Retrieval Results</h2>
+  <img class="summary-img" src="./DreamBooth_files/P10.png" style="width:100%;">
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Interpretability Analysis</h2>
+  <p><strong>· Have we truly decoded motion information from fMRI? </strong> </p>
+  <br>
+  <img class="summary-img" src="./DreamBooth_files/P11.png" style="width:100%;"> <br>
+  <p>Repeating the aforementioned procedure 100 times, the P-value of the shuffle test can be estimated as</p>
+  <img src="./DreamBooth_files/gongshi.png" style="margin:0 auto"> 
+  <p>A lower P-value indicates a higher consistency between the reconstructed video frames and the ground truth before shuffling.  </p>
+  <img class="summary-img" src="./DreamBooth_files/P12.png"> <br>
+  <p><strong>· Which brain regions are responsible for decoding different features, respectively?  </strong></p>
+  <img class="summary-img" src="./DreamBooth_files/P13.png"> <br>
+  <img class="summary-img" src="./DreamBooth_files/P14.png"> <br>
+  <P>· Low-level visual cortices (LVC) are predominantly responsible for processing low-level information of visual stimuli, such as orientation and contour.  In contrast, high-level visual cortices (HVC) are responsible for processing high-level semantic information of objects.  </P>
+  <P>· Both LVC and HVC contribute to the decoding of motion information, with significant weight attributed to V1 and MT. This observation is consistent with previous work, which validates the function of MT in visual motion processing.  </P>
+</div>
+<div class="content">
+  <h2 style="text-align:center;">More samples</h2>
+  <div class="container1">
+    <!-- Title Row for "Ground truth" and "Reconstructed" -->
+    <div class="row1">
+      <div class="column1">
+          <p class="column-title">Ground truth Reconstructed</p>
+      </div>
+      <div class="column1">
+          <p class="column-title">Ground truth Reconstructed</p>
+      </div>
+      <div class="column1">
+          <p class="column-title">Ground truth Reconstructed</p>
+      </div>
+      <div class="column1">
+          <p class="column-title">Ground truth Reconstructed</p>
+      </div>
+      <div class="column1">
+          <p class="column-title">Ground truth Reconstructed</p>
+      </div>
+  </div>
+    <!-- Row with 5 columns -->
+    <div class="row1">
+        <div class="column1">
+          <img class="custom-img" src="./DreamBooth_files/P15/1-1.gif" alt="Image 1">
+        </div>
+        <div class="column1">
+          <img class="custom-img" src="./DreamBooth_files/P15/1-2.gif" alt="Image 2">
+        </div>
+        <div class="column1">
+          <img class="custom-img" src="./DreamBooth_files/P15/1-3.gif" alt="Image 3">
+        </div>
+        <div class="column1">
+          <img class="custom-img" src="./DreamBooth_files/P15/1-4.gif" alt="Image 4">
+        </div>
+        <div class="column1">
+          <img class="custom-img" src="./DreamBooth_files/P15/1-5.gif" alt="Image 5">
+        </div>
+    </div>
+    
+    <!-- Second row with 5 columns -->
+    <div class="row1">
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/2-1.gif" alt="Image 6">
+        </div>
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/2-2.gif" alt="Image 7">
+        </div>
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/2-3.gif" alt="Image 8">
+        </div>
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/2-4.gif" alt="Image 9">
+        </div>
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/2-5.gif" alt="Image 10">
+        </div>
+    </div>
 
+    <!-- Third row with 5 columns -->
+    <div class="row1">
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/3-1.gif" alt="Image 11">
+        </div>
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/3-2.gif" alt="Image 12">
+        </div>
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/3-3.gif" alt="Image 13">
+        </div>
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/3-4.gif" alt="Image 14">
+        </div>
+        <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P15/3-5.gif" alt="Image 15">
+        </div>
+    </div>
+</div>
+</div>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">VDT: General-purpose Video Diffusion Transformers via Mask Modeling</h1>
-          <!-- <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
-          </div> -->
-
-          <!-- <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
-          </div> -->
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/RERV/VDT"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-            </div>
-
+<div class="content">
+  <h2 style="text-align:center;">Fail Cases</h2>
+  <p><strong>Case 1：</strong>Decoding errors in semantic, structural, or motion features due to low decoding accuracy.</p>
+    <div class="container1">
+      <!-- Title Row for "Ground truth" and "Reconstructed" -->
+      <div class="row1">
+        <div class="column1">
+            <p class="column-title">Ground truth Reconstructed</p>
+        </div>
+        <div class="column1">
+            <p class="column-title">Ground truth Reconstructed</p>
+        </div>
+        <div class="column1">
+            <p class="column-title">Ground truth Reconstructed</p>
+        </div>
+        <div class="column1">
+            <p class="column-title">Ground truth Reconstructed</p>
+        </div>
+    </div>
+      <!-- Row with 5 columns -->
+      <div class="row1">
+          <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P16/1-1.gif" alt="Image 1">
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/fig_univdt.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        A diagram of our unified video diffusion transformer (<span class="dnerf"></span>VDT</span>) via spatial-temporal mask
-        modeling. VDT represents a versatile framework constructed upon pure transformer architectures.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-      <div class="hero-body">
-          <div class="grid">
-              <!-- 以下部分插入了16个图片链接 -->
-              <img src="./static/images/2_2_5_longer.gif" alt="Gif Image 1">
-              <img src="./static/images/2_2_6_longer.gif" alt="Gif Image 2">
-              <img src="./static/images/2_4_1_longer.gif" alt="Gif Image 3">
-              <img src="./static/images/2_5_1_longer.gif" alt="Gif Image 4">
-              <img src="./static/images/2_5_3_longer.gif" alt="Gif Image 5">
-              <img src="./static/images/2_5_4_longer.gif" alt="Gif Image 6">
-              <img src="./static/images/5_4_0_longer.gif" alt="Gif Image 7">
-              <img src="./static/images/3_2_4_longer.gif" alt="Gif Image 8">
-              <img src="./static/images/3_5_2_longer.gif" alt="Gif Image 9">
-              <img src="./static/images/3_6_7_longer.gif" alt="Gif Image 10">
-              <img src="./static/images/3_7_6_longer.gif" alt="Gif Image 11">
-              <img src="./static/images/4_3_3_longer.gif" alt="Gif Image 12">
-              <!-- <img src="./static/images/new_13.gif" alt="Gif Image 13"> -->
-              <img src="./static/images/4_3_5_longer.gif" alt="Gif Image 14">
-              <img src="./static/images/4_4_2_longer.gif" alt="Gif Image 15">
-              <img src="./static/images/5_1_2_longer.gif" alt="Gif Image 16">
+          <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P16/1-2.gif" alt="Image 2">
           </div>
-          <h2 class="subtitle has-text-centered">
-              Qualitative results (64x256x256) on Sky Time-Lapse.
-          </h2>
-      </div>
-  </div>
-</section>
-
-
-<!-- <section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-      <div class="hero-body">
-          <div class="grid">
-              <!-- 以下部分插入了16个图片链接 -->
-              <!-- <img src="./static/images/new_1.gif" alt="Gif Image 1">
-              <img src="./static/images/new_2.gif" alt="Gif Image 2">
-              <img src="./static/images/new_3.gif" alt="Gif Image 3">
-              <img src="./static/images/new_4.gif" alt="Gif Image 4">
-              <img src="./static/images/new_5.gif" alt="Gif Image 5">
-              <img src="./static/images/new_6.gif" alt="Gif Image 6">
-              <img src="./static/images/new_7.gif" alt="Gif Image 7">
-              <img src="./static/images/new_8.gif" alt="Gif Image 8">
-              <img src="./static/images/new_9.gif" alt="Gif Image 9">
-              <img src="./static/images/new_10.gif" alt="Gif Image 10">
-              <img src="./static/images/new_11.gif" alt="Gif Image 11">
-              <img src="./static/images/new_12.gif" alt="Gif Image 12">
-              <img src="./static/images/new_13.gif" alt="Gif Image 13"> -->
-              <!-- <img src="./static/images/new_14.gif" alt="Gif Image 14">
-              <img src="./static/images/new_15.gif" alt="Gif Image 15">
-              <img src="./static/images/new_16.gif" alt="Gif Image 16">
+          <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P16/1-3.gif" alt="Image 3">
           </div>
-          <h2 class="subtitle has-text-centered">
-              Qualitative results (16x256x256) on Sky Time-Lapse.
-          </h2>
-      </div>
-  </div>
-</section> --> -->
-
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-      <div class="hero-body">
-          <div class="grid7">
-              <!-- 以下部分插入了16个图片链接 -->
-              <img src="./static/images/1_0_0_longer.gif" alt="Gif Image 1">
-              <img src="./static/images/1_2_0_longer.gif" alt="Gif Image 2">
-              <img src="./static/images/1_2_7_longer.gif" alt="Gif Image 3">
-              <img src="./static/images/1_3_4_longer.gif" alt="Gif Image 4">
-              <img src="./static/images/7_2_3_longer.gif" alt="Gif Image 5">
-              <!-- <img src="./static/images/3_0_7_longer.gif" alt="Gif Image 6"> -->
-              <img src="./static/images/1_3_2_longer.gif" alt="Gif Image 7">
+          <div class="column1">
+            <img class="custom-img" src="./DreamBooth_files/P16/1-4.gif" alt="Image 4">
           </div>
-          <h2 class="subtitle has-text-centered">
-              Qualitative results (64x256x256) on TaiChi.
-          </h2>
+
       </div>
-  </div>
-</section>
-
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-      <div class="hero-body">
-          <div class="grid8">
-              <!-- 以下部分插入了16个图片链接 -->
-              <img src="./static/images/Physion_GIF/1.gif" alt="Gif Image 1">
-              <img src="./static/images/Physion_GIF/2.gif" alt="Gif Image 2">
-              <img src="./static/images/Physion_GIF/3.gif" alt="Gif Image 3">
-              <img src="./static/images/Physion_GIF/4.gif" alt="Gif Image 4">
-              <img src="./static/images/Physion_GIF/5.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/6.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/7.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/8.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/9.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/10.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/11.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/12.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/13.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/14.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/15.gif" alt="Gif Image 5">
-              <img src="./static/images/Physion_GIF/16.gif" alt="Gif Image 5">
+      <p><strong>Case 2：</strong>The data acquisition paradigm causes abrupt content transitions at the boundaries of video clips, which are uniformly segmented from the complete videos viewed by the subjects during data collection. </p>
+      <!-- Second row with 5 columns -->
+      <div class="row1">
+        <div class="column1">
+            <p class="column-title">Ground truth Reconstructed</p>
+        </div>
+        <div class="column1">
+            <p class="column-title">Ground truth Reconstructed</p>
+        </div>
+        <div class="column1">
+            <p class="column-title">Ground truth Reconstructed</p>
+        </div>
+        <div class="column1">
+            <p class="column-title">Ground truth Reconstructed</p>
+        </div>
+    </div>
+      <div class="row1">
+          <div class="column1">
+              <img class="custom-img" src="./DreamBooth_files/P16/2-1.gif" alt="Image 6">
           </div>
-          <h2 class="subtitle has-text-centered">
-              Qualitative results (32x128x128) on Physion.
-          </h2>
+          <div class="column1">
+              <img class="custom-img" src="./DreamBooth_files/P16/2-2.gif" alt="Image 7">
+          </div>
+          <div class="column1">
+              <img class="custom-img" src="./DreamBooth_files/P16/2-3.gif" alt="Image 8">
+          </div>
+          <div class="column1">
+              <img class="custom-img" src="./DreamBooth_files/P16/2-4.gif" alt="Image 9">
+          </div>
       </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            This work introduces Video Diffusion Transformer (VDT), which pioneers the use of transformers in diffusion-based video generation. It features transformer blocks with modularized temporal and spatial attention modules to leverage the rich spatial-temporal representation inherited in transformers. Additionally, we propose a unified spatial-temporal mask modeling mechanism, seamlessly integrated with the model, to cater to diverse video generation scenarios.
-          </p>
-          <p>
-            VDT offers several appealing benefits. (1) It excels at capturing temporal dependencies to produce temporally consistent video frames and even simulate the physics and dynamics of 3D objects over time. (2) It facilitates flexible conditioning information, \eg, simple concatenation in the token space, effectively unifying different token lengths and modalities. (3) Pairing with our proposed spatial-temporal mask modeling mechanism, it becomes a general-purpose video diffuser for harnessing a range of tasks, including unconditional generation, video prediction, interpolation, animation, and completion, etc. % Extensive experiments on these tasks spanning various scenarios, including autonomous driving, natural weather, human action, and physics-based simulation, demonstrate the effectiveness of VDT. % Moreover, we provide a comprehensive study on the capabilities of VDT in capturing accurate temporal dependencies, handling conditioning information, and the spatial-temporal mask modeling mechanism. Additionally, we present comprehensive studies on how VDT handles conditioning information with the mask modeling mechanism, which we believe will benefit future research and advance the field. 
-
-          </p>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/arthicture.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        Illustration of our video diffusion transformer (VDT). Left: VDT block with temporal and spatial attention. Mid: The diffusion pipeline of our VDT. Right: We uniformly sample frames and then project them into the latent space using a pre-trained VAE tokenizer.
-      </h2>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/fig_univdt_mask.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        Illustration of our unified spatial-temporal mask modeling mechanism. Under this unified framework, we can modulate the the spatial-temporal mask M to incorporate additional video generation tasks into the VDT training process. This ensures that a well-trained VDT can be effortlessly applied to various video generation tasks. 
-      </h2>
-    </div>
-  </div>
-</section>
-
-
-
-<style>
-  .grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-  }
-</style>
-
-<style>
-  .grid7 {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-  }
-</style>
-
-<style>
-  .grid8 {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      gap: 10px;
-  }
-</style>
-
-<!-- <object data="./static/images/sky_1.pdf" type="application/pdf" width="500" height="300">
-  <p>It appears you don't have a PDF plugin for this browser.
-     You can <a href="sky_1.pdf">click here to download the PDF file.</a></p>
-</object> -->
-
-
-
-<!-- <embed src="./static/images/sky_1.pdf" type="application/pdf" width="500" height="300"> -->
-
-
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/images/fig_univdt.png"
-                type="images/png">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section> -->
-
-
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
-
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/sky_1.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        Unconditional Generation, Sky Time-Lapse.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/sky_2.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        Spatial-Temporal Video Completion, Sky Time-Lapse.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/sky_3.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        Bi-directional Video Prediction, Sky Time-Lapse.
-      </h2>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/sky_4.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        Arbitrary Video Interpolation, Sky Time-Lapse.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/sky_5.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        Image-to-video Generation, Sky Time-Lapse.
-      </h2>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/taichi.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        Qualitative results (16x256x256) on TaiChi-HD.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser" style="margin-left: 50px;">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/city.png" alt="Nerfies Image">
-      <h2 class="subtitle has-text-centered">
-        Qualitative results (30x128x128) on Cityscapes.
-      </h2>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
-  </div>
-</section> -->
-
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
+ 
+  <br>
+</div>
 </body>
 </html>
